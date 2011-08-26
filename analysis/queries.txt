@@ -4,3 +4,6 @@ select infmatrix, orgtype, increment, bias, min(actualperformance), avg(actualpe
 
 - get project completion time (as weighted by the number of neighbors considered during each time period)
 select infmatrix, orgType, increment, bias, completedPhaseOne, avg(duration) from durationtotal group by infmatrix, orgType, increment, bias, completedPhaseOne;
+
+- get the totalduration for each organization
+select count(*), infmatrix, landscapeID, orgID, orgType, increment, bias, sum(numConsideringNeighbors) from details group by infmatrix, orgType, increment, bias, landscapeID, orgID;
