@@ -1,0 +1,6 @@
+
+- get average final performance by complexity, organization type, bias
+select infmatrix, orgtype, increment, bias, min(actualperformance), avg(actualperformance), max(actualperformance) from details where completed = 1 group by infmatrix, orgtype, increment, bias;
+
+- get project completion time (as weighted by the number of neighbors considered during each time period)
+select infmatrix, orgType, increment, bias, completedPhaseOne, avg(duration) from durationtotal group by infmatrix, orgType, increment, bias, completedPhaseOne;
