@@ -1,0 +1,242 @@
+<jsap>
+	<parameters>
+		<flaggedOption>
+			<id>N</id>
+			<stringParser>
+				<classname>IntegerStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>N</shortFlag>
+			<defaults>
+				<string>16</string>
+			</defaults>
+			<help>The number of elements (N) in the NK model [default: 16]</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>resultsPath</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<shortFlag>d</shortFlag>
+			<longFlag>path-to</longFlag>
+			<defaults>
+				<string>/Users/jphahn/Documents/work/projects/temp</string>
+			</defaults>
+			<help>The path to the results outputs [default: results]</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>outfile</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>o</shortFlag>
+			<longFlag>out</longFlag>
+			<defaults>
+				<string></string>
+			</defaults>
+			<help>The name of the output file.  If none is provided, then filename will automatically be generated from the parameters [no default]</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>periods</id>
+			<stringParser>
+				<classname>IntegerStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>t</shortFlag>
+			<longFlag>periods</longFlag>
+			<defaults>
+				<string>-1</string>
+			</defaults>
+			<help>The number of periods to run [default: -1 = until convergence].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>numRuns</id>
+			<stringParser>
+				<classname>IntegerStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>r</shortFlag>
+			<longFlag>num-runs</longFlag>
+			<defaults>
+				<string>200</string>
+			</defaults>
+			<help>The number of landscapes (runs) to simulate [default: 200].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>numOrgs</id>
+			<stringParser>
+				<classname>IntegerStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>n</shortFlag>
+			<longFlag>num-orgs</longFlag>
+			<defaults>
+				<string>100</string>
+			</defaults>
+			<help>The number of organizations to simulate per landscape [default: 100].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>increment</id>
+			<stringParser>
+				<classname>IntegerStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>x</shortFlag>
+			<longFlag>increment</longFlag>
+			<help>The size of incremental scope; Increment is irrelevant for waterfall (x = 8) and NK (x = 16) [no default].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>changeFrequency</id>
+			<stringParser>
+				<classname>IntegerStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>f</shortFlag>
+			<longFlag>change-frequency</longFlag>
+			<defaults>
+				<string>0</string>
+			</defaults>
+			<help>The frequency (in number of periods) of environmental turbulence [default: 0 = no change].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>startLandscapeID</id>
+			<stringParser>
+				<classname>IntegerStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>l</shortFlag>
+			<longFlag>start-landscape-id</longFlag>
+			<defaults>
+				<string>0</string>
+			</defaults>
+			<help>The index of the landscape to start a run; only needed if continuing after premature termination [default: 0 = start from beginning].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>influenceMatrix</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>I</shortFlag>
+			<longFlag>infmatrix</longFlag>
+			<defaults>
+				<string>n16k12</string>
+			</defaults>
+			<help>The influence matrix file to use to create the landscapes.  The infmatrix file (with .txt extension must be in the inf directory [default: n16k12]</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>methodology</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>T</shortFlag>
+			<longFlag>org-type</longFlag>
+			<defaults>
+				<string>agile</string>
+			</defaults>
+			<help>The organization type (waterfall vs. agile vs. NK) [default: agile].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>search</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>S</shortFlag>
+			<longFlag>search</longFlag>
+			<defaults>
+				<string>cognitive</string>
+			</defaults>
+			<help>The landscape search approach (cognitive vs. experiential) [default: cognitive].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>biasType</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>B</shortFlag>
+			<longFlag>bias-type</longFlag>
+			<defaults>
+				<string>random</string>
+			</defaults>
+			<help>The bias generating function used (random or overestimate) [default: random].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>changeType</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>c</shortFlag>
+			<longFlag>change-type</longFlag>
+			<defaults>
+				<string>none</string>
+			</defaults>
+			<help>The nature of environmental turbulence (none, once or recurring).  If recurring is used -f (--change-frequency) and -s (--stability) must also be set [default: none].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>reportLevel</id>
+			<stringParser>
+				<classname>StringStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>L</shortFlag>
+			<longFlag>report-level</longFlag>
+			<defaults>
+				<string>details</string>
+			</defaults>
+			<help>Level of analysis for reporting (summary or details); details produces organizational-level performance over time (.details) and considered neighbors at each period (.neighbor) [default: details].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>bias</id>
+			<stringParser>
+				<classname>DoubleStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>b</shortFlag>
+			<longFlag>bias</longFlag>
+			<defaults>
+				<string>0.0</string>
+			</defaults>
+			<help>The amount of initial bias in fitness misperception [default: 0.0].</help>
+		</flaggedOption>
+		<flaggedOption>
+			<id>stability</id>
+			<stringParser>
+				<classname>DoubleStringParser</classname>
+			</stringParser> 
+			<required>true</required>
+			<shortFlag>s</shortFlag>
+			<longFlag>stability</longFlag>
+			<defaults>
+				<string>1.0</string>
+			</defaults>
+			<help>The (inverse) amount of environmental turbulence (1.0 is completely stable; 0.0 is completely random) [default: 1.0].</help>
+		</flaggedOption>
+		<switch>
+			<id>integrationNew</id>
+			<longFlag>integration-new</longFlag>
+			<help>The type of integration mechanism (new vs. all).  New fixes elements of the scope already determined and searches for permutations in the incremented scope.  All searches permutations of the full scope [default: all].</help>
+		</switch>
+		<switch>
+			<id>adaptNew</id>
+			<longFlag>adapt-new</longFlag>
+			<help>The type of adaptation mechanism (new vs. all).  New fixes elements of the scope already determined and searches for permutations in the incremented scope.  All searches permutations of the full scope after incremented scope search has been exhausted [default: all].</help>
+		</switch>
+		<switch>
+			<id>debug</id>
+			<shortFlag>v</shortFlag>
+			<longFlag>verbose</longFlag>
+			<help>Requests verbose output (to stdout) [default: false].</help>
+		</switch>
+		<switch>
+			<id>help</id>
+			<shortFlag>h</shortFlag>
+			<longFlag>help</longFlag>
+			<help>Displays usage [default: false].</help>
+		</switch>
+	</parameters>
+</jsap>
