@@ -1,0 +1,5 @@
+README:
+
+- run 'java app.Simulation -h" for instructions on how to set parameters for the simulation
+
+- notes: must include JSAP (Java Simple Argument Parser: http://www.martiansoftware.com/jsap/) and XStream (http://xstream.codehaus.org/) in the classpath
