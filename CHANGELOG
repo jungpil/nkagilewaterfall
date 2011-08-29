@@ -1,0 +1,11 @@
+#################################
+# Change Log
+# Updates will be logged here
+#################################
+
+8/28/2011
+JH: created table 'performance' on conway2's mysql db, with performance by unit time for each organization
+	 - see database/loadperformancedata.sql 
+	 	- datafiles stored in jungpil's home directory on conway
+	 - see updates to database/ddl.sql (for schema)
+
