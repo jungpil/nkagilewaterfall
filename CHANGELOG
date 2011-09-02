@@ -8,4 +8,7 @@ JH: created table 'performance' on conway2's mysql db, with performance by unit 
 	 - see database/loadperformancedata.sql 
 	 	- datafiles stored in jungpil's home directory on conway
 	 - see updates to database/ddl.sql (for schema)
+9/1/2011
+JH: created table 'avgperf_landscape' with average performance across organizations within landscapes
+JH: created table 'avgperf_experiment' with average performance across landscape average performances within experimental conditions (complexity x orgtype/increment x bias)
 
